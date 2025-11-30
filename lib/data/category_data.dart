@@ -11,6 +11,6 @@ List<CategoryModel> categories = [
   CategoryModel(id: "f4", title: "Biryani", color: Colors.yellow, image: 'assets/category_images/biryani.png'),
   CategoryModel(id: "f5", title: "Malwani", color: Colors.blue, image: 'assets/category_images/malwani.png'),
   CategoryModel(id: "f6", title: "Nasta's", color: Colors.tealAccent, image: 'assets/category_images/nasta.png'),
-  CategoryModel(id: "f7", title: "Festival Special", color: Colors.lightGreenAccent, image: 'assets/category_images/img.png'),
+  CategoryModel(id: "f7", title: "Festival Special", color: Colors.lightGreenAccent, image: 'assets/category_images/fest.png'),
   CategoryModel(id: "f8", title: "Punjabi", color: Colors.pinkAccent, image: 'assets/category_images/punjabi.png')
 ];

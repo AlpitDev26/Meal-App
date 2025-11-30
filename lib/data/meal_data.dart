@@ -4,9 +4,9 @@ import 'package:meal_recipe_app/models/meal_model.dart';
 List<MealModel> meals = [
   MealModel(
     id: 'm1',
-    categories: ['f1'],
+    categories: ['f1', 'f7'],
     title: 'Puran Poli',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Puran_Poli.jpg/800px-Puran_Poli.jpg',
+    imageUrl: 'assets/meal_images/puranpoli.png',
     ingredients: [
       '1 cup Chana Dal',
       '1 cup Jaggery',
@@ -33,7 +33,7 @@ List<MealModel> meals = [
     id: 'm2',
     categories: ['f1'],
     title: 'Misal Pav',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Misal_Pav_at_Aaswad.jpg',
+    imageUrl: 'assets/meal_images/misalpav.png',
     ingredients: [
       '2 cups Sprouted Moth Beans',
       '2 Onions',
@@ -62,7 +62,7 @@ List<MealModel> meals = [
     id: 'm3',
     categories: ['f1'],
     title: 'Vada Pav',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Vada_Pav-Indian_street_food.JPG',
+    imageUrl: 'assets/meal_images/vadapav.png',
     ingredients: [
       '4 Potatoes (Boiled)',
       '1 cup Gram Flour (Besan)',
@@ -89,7 +89,7 @@ List<MealModel> meals = [
     id: 'm4',
     categories: ['f1'],
     title: 'Bharli Vangi (Stuffed Eggplant)',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Bharli_Vangi.jpg/640px-Bharli_Vangi.jpg',
+    imageUrl: 'assets/meal_images/bharlvang.png',
     ingredients: [
       '6 Small Eggplants',
       '1/2 cup Roasted Peanuts',
@@ -115,7 +115,7 @@ List<MealModel> meals = [
     id: 'm5',
     categories: ['f1'],
     title: 'Thalipeeth',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Thalipeeth.jpg/640px-Thalipeeth.jpg',
+    imageUrl: 'assets/meal_images/thalipeeth.png',
     ingredients: [
       '1 cup Mixed Flour (Bhajani)',
       '1 Onion (Chopped)',
@@ -141,7 +141,7 @@ List<MealModel> meals = [
     id: 'm6',
     categories: ['f2'],
     title: 'Masala Dosa',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Masala_Dosa_Food.jpg',
+    imageUrl: 'assets/meal_images/masaladosa.png',
     ingredients: [
       '1 cup Urad Dal',
       '3 cups Rice',
@@ -167,9 +167,9 @@ List<MealModel> meals = [
   ),
   MealModel(
     id: 'm7',
-    categories: ['f2'],
+    categories: ["f2"],
     title: 'Idli Sambar',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Idli_Sambar.JPG',
+    imageUrl: 'assets/meal_images/idli_sambhar.jpg',
     ingredients: [
       '1 cup Urad Dal',
       '2 cups Rice Rava (Idli Rava)',
@@ -196,7 +196,7 @@ List<MealModel> meals = [
     id: 'm8',
     categories: ['f2'],
     title: 'Medu Vada',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Medu_Vada_sambar.JPG',
+    imageUrl: 'assets/meal_images/meduvada.jpg',
     ingredients: [
       '1 cup Urad Dal',
       'Green Chilies',
@@ -224,7 +224,7 @@ List<MealModel> meals = [
     id: 'm9',
     categories: ['f2'],
     title: 'Ven Pongal',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Ven_Pongal.jpg',
+    imageUrl: 'assets/meal_images/ven_pongal.png',
     ingredients: [
       '1 cup Raw Rice',
       '1/2 cup Moong Dal',
@@ -252,7 +252,7 @@ List<MealModel> meals = [
     id: 'm10',
     categories: ['f2'],
     title: 'Appam with Stew',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Appam_stew.jpg',
+    imageUrl: 'assets/meal_images/appam.png',
     ingredients: [
       '2 cups Raw Rice',
       '1/2 cup Grated Coconut',
@@ -275,7 +275,65 @@ List<MealModel> meals = [
     isVegan: true,
     isVegetarian: true,
   ),
-
+  MealModel(
+    id: 'm11',
+    categories: ['f4'],
+    title: 'Hyderabadi Biryani',
+    imageUrl: 'assets/meal_images/hyd_biryani.png',
+    ingredients: [
+      '2 cups Basmati Rice',
+      '500g Chicken or Mutton',
+      '1 cup Yogurt',
+      'Fried Onions (Birista)',
+      'Saffron milk',
+      'Mint & Coriander leaves',
+      'Whole Spices (Cardamom, Cloves, Cinnamon)',
+      'Ghee'
+    ],
+    steps: [
+      'Marinate meat with yogurt, spices, and fried onions for 2 hours.',
+      'Par-boil rice with whole spices until 70% cooked.',
+      'Layer the marinated meat at the bottom of a heavy pot.',
+      'Layer the rice over the meat, top with saffron, ghee, and herbs.',
+      'Seal the pot with dough and cook on low heat (Dum) for 40 minutes.'
+    ],
+    duration: 120,
+    complexity: Complexity.hard,
+    affordability: Affordability.pricey,
+    isGlutenFree: true,
+    isLactoseFree: false,
+    isVegan: false,
+    isVegetarian: false,
+  ),
+  MealModel(
+    id: 'm12',
+    categories: ['f5'],
+    title: 'Surmai Fish Curry',
+    imageUrl: 'assets/meal_images/surmai.png',
+    ingredients: [
+      '500g Surmai (King Fish) or Pomfret',
+      '1 cup Fresh Coconut (Grated)',
+      '4-5 Dried Red Chilies (Bedgi)',
+      '1 tbsp Coriander Seeds',
+      '5-6 Kokum petals',
+      'Triphal (Sichuan Pepper)',
+      'Turmeric & Salt'
+    ],
+    steps: [
+      'Marinate fish slices with turmeric and salt.',
+      'Roast coconut, chilies, and coriander seeds; grind to a fine paste.',
+      'Boil the paste with water; add kokum and triphal.',
+      'Add fish pieces and simmer gently for 5-7 minutes.',
+      'Serve hot with steamed rice or Bhakri.'
+    ],
+    duration: 40,
+    complexity: Complexity.challenging,
+    affordability: Affordability.pricey,
+    isGlutenFree: true,
+    isLactoseFree: true,
+    isVegan: false,
+    isVegetarian: false,
+  ),
 ];
 
 
