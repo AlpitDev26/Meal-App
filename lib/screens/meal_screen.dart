@@ -33,78 +33,81 @@ class MealScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView.builder(
-        itemCount: filterMeal.length,
-        itemBuilder: (context, index) {
-          return Card(
-            clipBehavior: Clip.hardEdge,
-            elevation: 1.8,
-            child: Stack(
-              children: [
-                Center(
-                  child: Image.asset(
-                    meals[index].imageUrl,
-                    filterQuality: FilterQuality.high,
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  child: Container(
-                    color: Colors.black54,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 4,
-                      horizontal: 44,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: filterMeal.length,
+          itemBuilder: (context, index) {
+            return Card(
+              clipBehavior: Clip.hardEdge,
+              elevation: 1.8,
+              child: Stack(
+                children: [
+                  Center(
+                    child: Image.asset(
+                      meals[index].imageUrl,
+                      filterQuality: FilterQuality.high,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          meals[index].title,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: Container(
+                      color: Colors.black54,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 4,
+                        horizontal: 44,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            meals[index].title,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              meals[index].complexity.name,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                meals[index].complexity.name,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                            Text(
-                              meals[index].affordability.name,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                              Text(
+                                meals[index].affordability.name,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                            Text(
-                              meals[index].duration.toString(),
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                              Text(
+                                meals[index].duration.toString(),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        },
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
