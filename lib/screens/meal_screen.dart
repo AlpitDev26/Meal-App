@@ -43,12 +43,11 @@ class MealScreen extends StatelessWidget {
               elevation: 1.8,
               child: Stack(
                 children: [
-                  Center(
-                    child: Image.asset(
-                      meals[index].imageUrl,
+                  Image.asset(
+                      filterMeal[index].imageUrl,
+                      fit:BoxFit.fitWidth,
                       filterQuality: FilterQuality.high,
                     ),
-                  ),
                   Positioned(
                     bottom: 0,
                     right: 0,
@@ -63,7 +62,7 @@ class MealScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            meals[index].title,
+                            filterMeal[index].title,
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -74,7 +73,7 @@ class MealScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
-                                meals[index].complexity.name,
+                                filterMeal[index].complexity.name,
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -82,7 +81,7 @@ class MealScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                meals[index].affordability.name,
+                                filterMeal[index].affordability.name,
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -90,7 +89,7 @@ class MealScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                meals[index].duration.toString(),
+                                filterMeal[index].duration.toString(),
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
