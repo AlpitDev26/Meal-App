@@ -33,7 +33,7 @@ List<MealModel> meals = [
     id: 'm2',
     categories: ['f1'],
     title: 'Misal Pav',
-    imageUrl: 'assets/meal_images/misalpav.png',
+    imageUrl: 'assets/meal_images/misalpav.jpg',
     ingredients: [
       '2 cups Sprouted Moth Beans',
       '2 Onions',

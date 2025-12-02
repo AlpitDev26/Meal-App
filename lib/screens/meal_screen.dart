@@ -45,7 +45,7 @@ class MealScreen extends StatelessWidget {
                 children: [
                   Image.asset(
                       filterMeal[index].imageUrl,
-                      fit:BoxFit.fitWidth,
+                      fit:BoxFit.fill,
                       filterQuality: FilterQuality.high,
                     ),
                   Positioned(
@@ -64,7 +64,7 @@ class MealScreen extends StatelessWidget {
                           Text(
                             filterMeal[index].title,
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
@@ -75,7 +75,7 @@ class MealScreen extends StatelessWidget {
                               Text(
                                 filterMeal[index].complexity.name,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 17,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -83,7 +83,7 @@ class MealScreen extends StatelessWidget {
                               Text(
                                 filterMeal[index].affordability.name,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 17,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -91,7 +91,7 @@ class MealScreen extends StatelessWidget {
                               Text(
                                 filterMeal[index].duration.toString(),
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 17,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
