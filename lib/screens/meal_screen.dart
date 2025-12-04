@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/data/category_data.dart';
 import 'package:meal_recipe_app/models/meal_model.dart';
+import 'package:meal_recipe_app/widgets/item_trait.dart';
 
 import '../data/meal_data.dart';
 
@@ -43,11 +44,7 @@ class MealScreen extends StatelessWidget {
               elevation: 1.8,
               child: Stack(
                 children: [
-                  Image.asset(
-                      filterMeal[index].imageUrl,
-                      fit:BoxFit.fill,
-                      filterQuality: FilterQuality.high,
-                    ),
+                  Image.asset(filterMeal[index].imageUrl, fit: BoxFit.fill),
                   Positioned(
                     bottom: 0,
                     right: 0,
@@ -69,32 +66,60 @@ class MealScreen extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
+                          SizedBox(height: 5),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   children: [
+                          //     Icon(Icons.work, color: Colors.white,),
+                          //     SizedBox(width: 3,),
+                          //     Text(
+                          //       filterMeal[index].complexity.name,
+                          //       style: TextStyle(
+                          //         fontSize: 17,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white,
+                          //       ),
+                          //     ),
+                          //     SizedBox(width: 15,),
+                          //     Icon(Icons.currency_rupee, color: Colors.white,),
+                          //     SizedBox(width: 3,),
+                          //     Text(
+                          //       filterMeal[index].affordability.name,
+                          //       style: TextStyle(
+                          //         fontSize: 17,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white,
+                          //       ),
+                          //     ),
+                          //     SizedBox(width: 15,),
+                          //     Icon(Icons.hourglass_bottom, color: Colors.white,),
+                          //     SizedBox(width: 3,),
+                          //     Text(
+                          //       filterMeal[index].duration.toString(),
+                          //       style: TextStyle(
+                          //         fontSize: 17,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white,
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                filterMeal[index].complexity.name,
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
+                              ItemTrait(
+                                text: filterMeal[index].complexity.name,
+                                icon: Icons.work,
                               ),
-                              Text(
-                                filterMeal[index].affordability.name,
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
+                              SizedBox(width: 8,),
+                              ItemTrait(
+                                text: filterMeal[index].affordability.name,
+                                icon: Icons.currency_rupee,
                               ),
-                              Text(
-                                filterMeal[index].duration.toString(),
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
+                              SizedBox(width: 8,),
+                              ItemTrait(
+                                text: filterMeal[index].duration.toString(),
+                                icon: Icons.hourglass_bottom,
                               ),
                             ],
                           ),
