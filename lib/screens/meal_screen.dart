@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/data/category_data.dart';
 import 'package:meal_recipe_app/models/meal_model.dart';
+import 'package:meal_recipe_app/screens/meals_detailed_screen.dart';
 import 'package:meal_recipe_app/widgets/item_trait.dart';
+import 'dart:ui';
 
 import '../data/meal_data.dart';
 
@@ -39,95 +41,111 @@ class MealScreen extends StatelessWidget {
         child: ListView.builder(
           itemCount: filterMeal.length,
           itemBuilder: (context, index) {
-            return Card(
-              clipBehavior: Clip.hardEdge,
-              elevation: 1.8,
-              child: Stack(
-                children: [
-                  Image.asset(filterMeal[index].imageUrl, fit: BoxFit.fill),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    child: Container(
-                      color: Colors.black54,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 4,
-                        horizontal: 44,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            filterMeal[index].title,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        MealsDetailedScreen(meals: filterMeal[index]),
+                  ),
+                );
+              },
+              child: Card(
+                color: Colors.amber.shade300,
+                clipBehavior: Clip.hardEdge,
+                elevation: 1.8,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      filterMeal[index].imageUrl,
+                      width: double.infinity,
+                      height: 200,
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      left: 0,
+                      child: Container(
+                        color: Colors.black54,
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 4,
+                          horizontal: 44,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              filterMeal[index].title,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 5),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: [
-                          //     Icon(Icons.work, color: Colors.white,),
-                          //     SizedBox(width: 3,),
-                          //     Text(
-                          //       filterMeal[index].complexity.name,
-                          //       style: TextStyle(
-                          //         fontSize: 17,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white,
-                          //       ),
-                          //     ),
-                          //     SizedBox(width: 15,),
-                          //     Icon(Icons.currency_rupee, color: Colors.white,),
-                          //     SizedBox(width: 3,),
-                          //     Text(
-                          //       filterMeal[index].affordability.name,
-                          //       style: TextStyle(
-                          //         fontSize: 17,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white,
-                          //       ),
-                          //     ),
-                          //     SizedBox(width: 15,),
-                          //     Icon(Icons.hourglass_bottom, color: Colors.white,),
-                          //     SizedBox(width: 3,),
-                          //     Text(
-                          //       filterMeal[index].duration.toString(),
-                          //       style: TextStyle(
-                          //         fontSize: 17,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ItemTrait(
-                                text: filterMeal[index].complexity.name,
-                                icon: Icons.work,
-                              ),
-                              SizedBox(width: 8,),
-                              ItemTrait(
-                                text: filterMeal[index].affordability.name,
-                                icon: Icons.currency_rupee,
-                              ),
-                              SizedBox(width: 8,),
-                              ItemTrait(
-                                text: filterMeal[index].duration.toString(),
-                                icon: Icons.hourglass_bottom,
-                              ),
-                            ],
-                          ),
-                        ],
+                            SizedBox(height: 5),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.center,
+                            //   children: [
+                            //     Icon(Icons.work, color: Colors.white,),
+                            //     SizedBox(width: 3,),
+                            //     Text(
+                            //       filterMeal[index].complexity.name,
+                            //       style: TextStyle(
+                            //         fontSize: 17,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white,
+                            //       ),
+                            //     ),
+                            //     SizedBox(width: 15,),
+                            //     Icon(Icons.currency_rupee, color: Colors.white,),
+                            //     SizedBox(width: 3,),
+                            //     Text(
+                            //       filterMeal[index].affordability.name,
+                            //       style: TextStyle(
+                            //         fontSize: 17,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white,
+                            //       ),
+                            //     ),
+                            //     SizedBox(width: 15,),
+                            //     Icon(Icons.hourglass_bottom, color: Colors.white,),
+                            //     SizedBox(width: 3,),
+                            //     Text(
+                            //       filterMeal[index].duration.toString(),
+                            //       style: TextStyle(
+                            //         fontSize: 17,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white,
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ItemTrait(
+                                  text: filterMeal[index].complexity.name,
+                                  icon: Icons.work,
+                                ),
+                                SizedBox(width: 8),
+                                ItemTrait(
+                                  text: filterMeal[index].affordability.name,
+                                  icon: Icons.currency_rupee,
+                                ),
+                                SizedBox(width: 8),
+                                ItemTrait(
+                                  text: filterMeal[index].duration.toString(),
+                                  icon: Icons.hourglass_bottom,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
