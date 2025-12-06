@@ -24,11 +24,21 @@ class MealsDetailedScreen extends StatelessWidget {
       body: Scaffold(
         body: Column(
           children: [
-            Image.asset(meals.imageUrl,
-            width: double.infinity,
-            height: 300,)
+            Image.asset(
+              meals.imageUrl,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              height: 250,
+            ),
+            const SizedBox(height: 20,),
+            const Text("Ingredients",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.redAccent,
+              fontSize: 22 
+            ),)
           ],
-        )
+        ),
       ),
     );
   }
