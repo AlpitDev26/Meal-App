@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/screens/category_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meal_recipe_app/screens/home_screen.dart';
 
 class MealRecipeApp extends StatelessWidget {
   const MealRecipeApp({super.key});
@@ -19,7 +20,7 @@ class MealRecipeApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: MealAppHomeScreen(),
+      home: HomeScreen(),
     );
   }
 }

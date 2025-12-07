@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/data/category_data.dart';
 import 'package:meal_recipe_app/screens/meal_screen.dart';
 
-class MealAppHomeScreen extends StatelessWidget {
-  const MealAppHomeScreen({super.key});
+class MealAppCategoryScreen extends StatelessWidget {
+  const MealAppCategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
