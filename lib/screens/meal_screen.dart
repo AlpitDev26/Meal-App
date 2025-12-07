@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meal_recipe_app/data/category_data.dart';
 import 'package:meal_recipe_app/models/meal_model.dart';
 import 'package:meal_recipe_app/screens/meals_detailed_screen.dart';
 import 'package:meal_recipe_app/widgets/item_trait.dart';
-import 'dart:ui';
 
 import '../data/meal_data.dart';
 
@@ -59,8 +57,8 @@ class MealScreen extends StatelessWidget {
                   children: [
                     Image.asset(
                       filterMeal[index].imageUrl,
+                      height: 150,
                       width: double.infinity,
-                      height: 200,
                     ),
                     Positioned(
                       bottom: 0,
@@ -70,7 +68,7 @@ class MealScreen extends StatelessWidget {
                         color: Colors.black54,
                         padding: const EdgeInsets.symmetric(
                           vertical: 4,
-                          horizontal: 44,
+                          horizontal: 10,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,

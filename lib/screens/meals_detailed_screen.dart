@@ -1,25 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:meal_recipe_app/models/meal_model.dart';
 
-class MealsDetailedScreen extends StatelessWidget {
+class MealsDetailedScreen extends StatefulWidget {
   // final String title;
   final MealModel meals;
 
   const MealsDetailedScreen({super.key, required this.meals});
 
   @override
+  State<MealsDetailedScreen> createState() => _MealsDetailedScreenState();
+}
+
+class _MealsDetailedScreenState extends State<MealsDetailedScreen> {
+  bool _isFav = false;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
-          meals.title,
+          widget.meals.title,
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 26,
             color: Colors.white,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _isFav = !_isFav;
+              });
+
+              /// some logic to add this is in the favorite screen
+
+            },
+            icon: Icon(_isFav ? Icons.favorite : Icons.favorite_border),
+            color: _isFav ? Colors.red : Colors.white,
+          ),
+        ],
       ),
       body: Scaffold(
         body: SingleChildScrollView(
@@ -29,7 +51,7 @@ class MealsDetailedScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  meals.imageUrl,
+                  widget.meals.imageUrl,
                   width: double.infinity,
                   fit: BoxFit.cover,
                   height: 250,
@@ -44,7 +66,7 @@ class MealsDetailedScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 4),
-                ...meals.ingredients.map((item) {
+                ...widget.meals.ingredients.map((item) {
                   return Text(
                     item,
                     textAlign: TextAlign.left,
@@ -61,7 +83,7 @@ class MealsDetailedScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 4),
-                ...meals.steps.map((item) {
+                ...widget.meals.steps.map((item) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
