@@ -45,7 +45,7 @@ class MealScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        MealsDetailedScreen(meals: filterMeal[index]),
+                        MealsDetailedScreen(meal: filterMeal[index]),
                   ),
                 );
               },

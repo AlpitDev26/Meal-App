@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_recipe_app/models/meal_model.dart';
+import 'package:meal_recipe_app/providers/favorite_provider.dart';
 
-class MealsDetailedScreen extends StatefulWidget {
+class MealsDetailedScreen extends ConsumerWidget {
   // final String title;
-  final MealModel meals;
+  final MealModel meal;
 
-  const MealsDetailedScreen({super.key, required this.meals});
-
-  @override
-  State<MealsDetailedScreen> createState() => _MealsDetailedScreenState();
-}
-
-class _MealsDetailedScreenState extends State<MealsDetailedScreen> {
-  bool _isFav = false;
+  const MealsDetailedScreen({super.key, required this.meal});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<MealModel> favouriteMeals = ref.watch(favoriteMealsProvider);
+
+    final isFav = favouriteMeals.contains(meal);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
-          widget.meals.title,
+          meal.title,
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 26,
@@ -31,15 +30,12 @@ class _MealsDetailedScreenState extends State<MealsDetailedScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              setState(() {
-                _isFav = !_isFav;
-              });
-
               /// some logic to add this is in the favorite screen
-
+              ref.read(favoriteMealsProvider.notifier)
+                  .toggleMealFavStatus(meal);
             },
-            icon: Icon(_isFav ? Icons.favorite : Icons.favorite_border),
-            color: _isFav ? Colors.red : Colors.white,
+            icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
+            color: isFav ? Colors.red : Colors.white,
           ),
         ],
       ),
@@ -51,7 +47,7 @@ class _MealsDetailedScreenState extends State<MealsDetailedScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  widget.meals.imageUrl,
+                  meal.imageUrl,
                   width: double.infinity,
                   fit: BoxFit.cover,
                   height: 250,
@@ -66,7 +62,7 @@ class _MealsDetailedScreenState extends State<MealsDetailedScreen> {
                   ),
                 ),
                 SizedBox(height: 4),
-                ...widget.meals.ingredients.map((item) {
+                ...meal.ingredients.map((item) {
                   return Text(
                     item,
                     textAlign: TextAlign.left,
@@ -83,7 +79,7 @@ class _MealsDetailedScreenState extends State<MealsDetailedScreen> {
                   ),
                 ),
                 SizedBox(height: 4),
-                ...widget.meals.steps.map((item) {
+                ...meal.steps.map((item) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
