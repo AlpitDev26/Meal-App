@@ -57,8 +57,9 @@ class MealScreen extends StatelessWidget {
                   children: [
                     Image.asset(
                       filterMeal[index].imageUrl,
-                      height: 150,
-                      width: double.infinity,
+                      height: 250,
+                      width: double.maxFinite,
+                      fit: BoxFit.fill,
                     ),
                     Positioned(
                       bottom: 0,

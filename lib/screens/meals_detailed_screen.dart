@@ -30,11 +30,18 @@ class MealsDetailedScreen extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              /// some logic to add this is in the favorite screen
+              /// Toggle meal favorite status / प्रिय भोजन स्थिति टॉगल करा
+              /// When user taps the button, access the notifier from favoriteMealsProvider
+              /// and call toggleMealFavStatus to switch between favorite and non-favorite states
               ref.read(favoriteMealsProvider.notifier)
-                  .toggleMealFavStatus(meal);
+                .toggleMealFavStatus(meal);
             },
+            /// Display a filled heart icon (♥) if meal is favorite, 
+            /// otherwise show an empty heart outline (♡) - similar to how we mark important
+            /// things as (beloved/favorite) in our daily life
             icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
+            /// Color the heart red when favorited,
+            /// use white when not favorited for visual clarity against the background
             color: isFav ? Colors.red : Colors.white,
           ),
         ],
