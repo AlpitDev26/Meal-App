@@ -33,10 +33,21 @@ class MealsDetailedScreen extends ConsumerWidget {
               /// Toggle meal favorite status / प्रिय भोजन स्थिति टॉगल करा
               /// When user taps the button, access the notifier from favoriteMealsProvider
               /// and call toggleMealFavStatus to switch between favorite and non-favorite states
-              ref.read(favoriteMealsProvider.notifier)
-                .toggleMealFavStatus(meal);
+              bool wasAdded = ref
+                  .read(favoriteMealsProvider.notifier)
+                  .toggleMealFavStatus(meal);
+
+              /// Show the Message
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: wasAdded
+                      ? Text("Meal is Added to Favorites....")
+                      : Text("Meal is Removed from Favorites...."),
+                ),
+              );
             },
-            /// Display a filled heart icon (♥) if meal is favorite, 
+
+            /// Display a filled heart icon (♥) if meal is favorite,
             /// otherwise show an empty heart outline (♡) - similar to how we mark important
             /// things as (beloved/favorite) in our daily life
             icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
