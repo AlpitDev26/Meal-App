@@ -1,4 +1,3 @@
-import 'category_models.dart';
 
 class MealModel {
   final String id;

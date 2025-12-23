@@ -41,8 +41,18 @@ class MealsDetailedScreen extends ConsumerWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: wasAdded
-                      ? Text("Meal is Added to Favorites....")
-                      : Text("Meal is Removed from Favorites...."),
+                      ? Text(
+                          "Meal is Added to Favorites....",
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 18,
+                          ),
+                        )
+                      : Text("Meal is Removed from Favorites....",
+                      style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 18,
+                          ),),
                 ),
               );
             },
@@ -51,6 +61,7 @@ class MealsDetailedScreen extends ConsumerWidget {
             /// otherwise show an empty heart outline (♡) - similar to how we mark important
             /// things as (beloved/favorite) in our daily life
             icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
+
             /// Color the heart red when favorited,
             /// use white when not favorited for visual clarity against the background
             color: isFav ? Colors.red : Colors.white,
