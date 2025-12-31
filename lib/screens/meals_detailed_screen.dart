@@ -38,21 +38,17 @@ class MealsDetailedScreen extends ConsumerWidget {
                   .toggleMealFavStatus(meal);
 
               /// Show the Message
+              ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: wasAdded
-                      ? Text(
-                          "Meal is Added to Favorites....",
-                          style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 18,
-                          ),
-                        )
-                      : Text("Meal is Removed from Favorites....",
-                      style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 18,
-                          ),),
+                  content: Text(
+                    wasAdded
+                        ? "Meal is Added to Favorites...."
+                        : "Meal is Removed from Favorites....",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  elevation: 2,
+                  backgroundColor: wasAdded ? Colors.green : Colors.red,
                 ),
               );
             },
